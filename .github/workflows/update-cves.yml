@@ -1,0 +1,32 @@
+name: Update CVEs
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  fetch-cves:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run CVE update script
+        run: python scripts/update_cve.py
+
+      - name: Commit and push updated CVEs
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add data/latest.json
+          git commit -m "Update latest.json with new CVEs" || echo "No changes"
+          git push

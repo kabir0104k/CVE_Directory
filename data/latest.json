@@ -1,0 +1,16 @@
+[
+  {
+    "id": "CVE-2025-0001",
+    "summary": "A sample vulnerability that allows remote code execution in SampleApp 1.0.",
+    "cvss": "9.8",
+    "published": "2025-03-31T12:00:00Z",
+    "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-0001"
+  },
+  {
+    "id": "CVE-2025-0002",
+    "summary": "Privilege escalation issue found in DemoPlugin for WordPress before 5.0.",
+    "cvss": "7.5",
+    "published": "2025-03-30T08:00:00Z",
+    "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-0002"
+  }
+]
